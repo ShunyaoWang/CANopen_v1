@@ -226,6 +226,9 @@ target_link_libraries(testcan_node ${catkin_LIBRARIES} usbcan)
 add_library(canopen_vci_ros
   src/canopen_vci_ros.cpp
 )
+add_library(Global2
+  src/Global2.cpp
+)
 add_executable(canopenexample
   include/testcan/canopen_vci_ros.h
   src/canopen_vci_ros.cpp
@@ -269,4 +272,28 @@ add_executable(TortGenRos
 add_dependencies(TortGenRos ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(TortGenRos
   ${catkin_LIBRARIES}
+)
+
+add_executable(arm_example
+  src/arm_example.cpp
+)
+add_dependencies(arm_example ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(arm_example
+  ${catkin_LIBRARIES}
+)
+
+add_executable(keyboard_move
+  src/keyboard_move.cpp
+)
+add_dependencies(keyboard_move ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(keyboard_move
+  ${catkin_LIBRARIES}
+)
+
+add_executable(CSPexample
+  src/CSPexample.cpp
+)
+add_dependencies(CSPexample ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(CSPexample
+  ${catkin_LIBRARIES} Global2
 )

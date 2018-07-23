@@ -124,7 +124,7 @@ int main(int argc, char *argv[])
     pos_pub.publish(ip_pos);
 	sendangle(16, -158.4*radiustodegree);
     pos_pub.publish(ip_pos);
-	usleep(10000000);
+	usleep(5000000);
 
 	sendangle(17, 45.0*radiustodegree);
     pos_pub.publish(ip_pos);
@@ -143,7 +143,7 @@ int main(int argc, char *argv[])
     pos_pub.publish(ip_pos);
 	sendangle(16, -45.0*radiustodegree);
     pos_pub.publish(ip_pos);
-	usleep(5000000);
+	usleep(10000000);
 	int i;
 	void rkt2f(double t, double y[], int n, double d[]);//函数声明，微分方程组
 	void rkt2(double t, double h, double y[], int n, double eps);//函数声明，求解过程

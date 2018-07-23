@@ -5,7 +5,7 @@ import rospy
 from testcan.msg import Frame, IpPos
 import time
 
-big = 2498560.0/360
+big = 2498560.0/360.0
 degreetoradius = 180.0/3.1415926
 radiustodegree = 3.1415926/180.0
 
@@ -22,10 +22,12 @@ def talker():
     # ip_pos = IpPos()
     pub.publish(sendpos(2,0))
     time.sleep(3)
-    rate = rospy.Rate(100) # 10hz
+    # rate = rospy.Rate(1) # 10hz
     motor_vel = 10
     motor_vel_slow = 0.1
     step = 4*int(832*motor_vel/160)
+    angle = 45 
+    stepangle = -45
     pos = 0
     count = 0
     print("currently velocity of motor is %f\n"%(step*160.0/416))
@@ -41,16 +43,13 @@ def talker():
         # step = step + int(832*motor_vel/160)
         print("currently velocity of motor is %f\n"%(step*160.0/416))
                     # count = 0 
-        pub.publish(sendpos(4,pos))
+        pub.publish(sendpos(4,angle*big))
         # angle*big*degreetoradius
-        rate.sleep()
-        print(pos)
-        pos = pos + step
-        if pos > 2498560/4:
-            time.sleep(10)
-            step = -step
-        if pos < -100:
-            break
+        # rate.sleep()
+        print(angle*big)
+        # angle = angle + stepangle
+        angle = -angle
+        time.sleep(10)
 
 if __name__ == '__main__':
     try:

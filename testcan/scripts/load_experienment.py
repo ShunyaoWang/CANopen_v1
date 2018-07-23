@@ -46,7 +46,7 @@ def talker():
         rate.sleep()
         print(pos)
         pos = pos + step
-        if pos > 2498560/4:
+        if pos > 2498560/8:
             time.sleep(10)
             step = -step
         if pos < -100:

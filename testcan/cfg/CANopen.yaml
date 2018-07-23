@@ -1,4 +1,12 @@
-param1: hello
-param2: true
-param3: 20.0
+enable_leg: true
+enable_arm: false
+enable_wheel: false
+enable_AP_feedback: false
+enable_RP_feedback: false
+enable_I_feedback: false
+enable_V_feedback: false
+enable_wheelspeed_feedback: false
+single_motor_test: false
+test_motor_id: 4  
+
 
